@@ -1,0 +1,10 @@
+DerivedData/
+build/
+*.xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+.build/
+Pods/
+Carthage/Build/
+.DS_Store
+*.log
