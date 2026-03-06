@@ -8,25 +8,25 @@ Managing thousands of screenshots across devices became overwhelming. I wanted a
 
 ## Screenshots
 
-| Loading | Main review |
-|---------|-------------|
-| ![Loading Screen](screenshots/TrashPicUp_Loading%20Screen.PNG) | ![Screenshot and Blurry Photo](screenshots/TrashPicUp_Screenshot%20and%20Blurry%20Photo.PNG) |
+<img src="screenshots/TrashPicUp_Loading%20Screen.PNG" width="400" alt="Loading Screen"> <img src="screenshots/TrashPicUp_Screenshot%20and%20Blurry%20Photo.PNG" width="400" alt="Screenshot and Blurry Photo">
 
-| Keep | Delete |
-|------|--------|
-| ![Keep Photo](screenshots/TrashPicUp_Keep%20Photo.PNG) | ![Delete Photo](screenshots/TrashPicUp_Delete%20Photo.PNG) |
+*Loading · Main review*
 
-| Blurry photo (card) | Blurry photo (full screen) |
-|---------------------|----------------------------|
-| ![Blurry Photo](screenshots/TrashPicUp_Blurry%20Photo.PNG) | ![Blurry Photo Full Screen View](screenshots/TrashPicUp_Blurry%20Photo%20Full%20Screen%20View.PNG) |
+<img src="screenshots/TrashPicUp_Keep%20Photo.PNG" width="400" alt="Keep Photo"> <img src="screenshots/TrashPicUp_Delete%20Photo.PNG" width="400" alt="Delete Photo">
 
-| Duplicate (card) | Duplicate (full screen) |
-|------------------|--------------------------|
-| ![Duplicate Photo](screenshots/TrashPicUp_Duplicate%20Photo.PNG) | ![Duplicate Photo Full Screen View](screenshots/TrashPicUp_Duplicate%20Photo%20Full%20Screen%20View.PNG) |
+*Keep · Delete*
 
-| Stats & Settings |
-|------------------|
-| ![Stats & Settings](screenshots/TrashPicUp_Stats%20%26%20Settings.PNG) |
+<img src="screenshots/TrashPicUp_Blurry%20Photo.PNG" width="400" alt="Blurry Photo"> <img src="screenshots/TrashPicUp_Blurry%20Photo%20Full%20Screen%20View.PNG" width="400" alt="Blurry Photo Full Screen">
+
+*Blurry (card) · Blurry (full screen)*
+
+<img src="screenshots/TrashPicUp_Duplicate%20Photo.PNG" width="400" alt="Duplicate Photo"> <img src="screenshots/TrashPicUp_Duplicate%20Photo%20Full%20Screen%20View.PNG" width="400" alt="Duplicate Full Screen">
+
+*Duplicate (card) · Duplicate (full screen)*
+
+<img src="screenshots/TrashPicUp_Stats%20%26%20Settings.PNG" width="400" alt="Stats & Settings">
+
+*Stats & Settings*
 
 ## Features
 
