@@ -298,7 +298,8 @@ struct PhotoItem: Identifiable {
         options.isSynchronous = false
         options.deliveryMode = deliveryMode
         options.resizeMode = targetSize.width >= 800 ? .none : .fast
-        
+        options.isNetworkAccessAllowed = true
+
         #if os(iOS)
         PHImageManager.default().requestImage(
             for: asset,

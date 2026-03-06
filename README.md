@@ -2,6 +2,32 @@
 
 A gamified macOS/iOS app that helps you clean up your Apple Photos library with a **Tinder-style** swipe interface. Focus on screenshots: one photo at a time, swipe or tap to keep or delete.
 
+## Why I Built This
+
+Managing thousands of screenshots across devices became overwhelming. I wanted a fun, gamified way to clean up my photo library that felt less like a chore and more like a game. TrashPicUp combines Tinder-style UI patterns with Apple's Photos framework to make photo management actually enjoyable.
+
+## Screenshots
+
+| Loading | Main review |
+|---------|-------------|
+| ![Loading Screen](screenshots/TrashPicUp_Loading%20Screen.PNG) | ![Screenshot and Blurry Photo](screenshots/TrashPicUp_Screenshot%20and%20Blurry%20Photo.PNG) |
+
+| Keep | Delete |
+|------|--------|
+| ![Keep Photo](screenshots/TrashPicUp_Keep%20Photo.PNG) | ![Delete Photo](screenshots/TrashPicUp_Delete%20Photo.PNG) |
+
+| Blurry photo (card) | Blurry photo (full screen) |
+|---------------------|----------------------------|
+| ![Blurry Photo](screenshots/TrashPicUp_Blurry%20Photo.PNG) | ![Blurry Photo Full Screen View](screenshots/TrashPicUp_Blurry%20Photo%20Full%20Screen%20View.PNG) |
+
+| Duplicate (card) | Duplicate (full screen) |
+|------------------|--------------------------|
+| ![Duplicate Photo](screenshots/TrashPicUp_Duplicate%20Photo.PNG) | ![Duplicate Photo Full Screen View](screenshots/TrashPicUp_Duplicate%20Photo%20Full%20Screen%20View.PNG) |
+
+| Stats & Settings |
+|------------------|
+| ![Stats & Settings](screenshots/TrashPicUp_Stats%20%26%20Settings.PNG) |
+
 ## Features
 
 - 🃏 **Tinder-Style Cards**: One photo at a time. Swipe left → delete, swipe right → keep. Or use the trash (bottom-left) and check (bottom-right) buttons.

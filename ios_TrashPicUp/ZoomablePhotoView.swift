@@ -19,11 +19,24 @@ struct ZoomablePhotoView: View {
 }
 
 #if os(iOS)
+/// Scroll view that re-layouts when its bounds change (fixes first-open centering when used in sheets).
+private final class ZoomableScrollView: UIScrollView {
+    weak var layoutCoordinator: ZoomablePhotoUIView.Coordinator?
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if let coordinator = layoutCoordinator {
+            coordinator.layoutScrollView(self)
+        }
+    }
+}
+
 private struct ZoomablePhotoUIView: UIViewRepresentable {
     let image: PlatformImage
 
     func makeUIView(context: Context) -> UIScrollView {
-        let scrollView = UIScrollView()
+        let scrollView = ZoomableScrollView()
+        scrollView.layoutCoordinator = context.coordinator
         scrollView.delegate = context.coordinator
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 4.0
@@ -51,10 +64,6 @@ private struct ZoomablePhotoUIView: UIViewRepresentable {
         scrollView.zoomScale = 1.0
         scrollView.contentOffset = .zero
         context.coordinator.layoutScrollView(scrollView)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-            scrollView.zoomScale = 1.0
-            context.coordinator.layoutScrollView(scrollView)
-        }
     }
 
     func makeCoordinator() -> Coordinator {

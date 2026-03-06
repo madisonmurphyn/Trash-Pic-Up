@@ -132,6 +132,7 @@ struct GameView: View {
 
                 if currentPhoto != nil || !pendingDeletes.isEmpty {
                     bottomBar
+                        .zIndex(100)
                 }
             }
             .overlay {
@@ -251,31 +252,29 @@ struct GameView: View {
         VStack(spacing: 0) {
             if currentPhoto != nil {
                 HStack {
-                    Button {
-                        if let p = currentPhoto { addToPendingAndAdvance(p) }
-                    } label: {
-                        Image(systemName: "trash.fill")
-                            .font(.title2)
-                            .foregroundStyle(.white)
-                            .frame(width: 56, height: 56)
-                            .background(TrashPicUpTheme.deleteRed)
-                            .clipShape(Circle())
-                    }
-                    .buttonStyle(.plain)
+                    Image(systemName: "trash.fill")
+                        .font(.title2)
+                        .foregroundStyle(.white)
+                        .frame(width: 56, height: 56)
+                        .background(TrashPicUpTheme.deleteRed)
+                        .clipShape(Circle())
+                        .contentShape(Circle())
+                        .onTapGesture {
+                            if let p = currentPhoto { addToPendingAndAdvance(p) }
+                        }
 
                     Spacer()
 
-                    Button {
-                        keepCurrent()
-                    } label: {
-                        Image(systemName: "checkmark.circle.fill")
-                            .font(.title2)
-                            .foregroundStyle(.white)
-                            .frame(width: 56, height: 56)
-                            .background(TrashPicUpTheme.keepGreen)
-                            .clipShape(Circle())
-                    }
-                    .buttonStyle(.plain)
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.title2)
+                        .foregroundStyle(.white)
+                        .frame(width: 56, height: 56)
+                        .background(TrashPicUpTheme.keepGreen)
+                        .clipShape(Circle())
+                        .contentShape(Circle())
+                        .onTapGesture {
+                            keepCurrent()
+                        }
                 }
                 .padding(.horizontal, 32)
                 .padding(.vertical, 20)
@@ -284,23 +283,22 @@ struct GameView: View {
             if !pendingDeletes.isEmpty {
                 HStack {
                     Spacer()
-                    Button {
-                        confirmDeleteBatch()
-                    } label: {
-                        HStack(spacing: 6) {
-                            Image(systemName: "trash.circle.fill")
-                                .font(.subheadline)
-                            Text("Delete \(pendingDeletes.count) from library")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                        }
-                        .foregroundStyle(.white)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 10)
-                        .background(TrashPicUpTheme.accentCyan)
-                        .cornerRadius(10)
+                    HStack(spacing: 6) {
+                        Image(systemName: "trash.circle.fill")
+                            .font(.subheadline)
+                        Text("Delete \(pendingDeletes.count) from library")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
                     }
-                    .buttonStyle(.plain)
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(TrashPicUpTheme.accentCyan)
+                    .cornerRadius(10)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        confirmDeleteBatch()
+                    }
                     Spacer()
                 }
                 .padding(.horizontal, 32)
@@ -482,14 +480,14 @@ struct GameView: View {
         HStack {
             Text("Goal by")
                 .foregroundStyle(TrashPicUpTheme.textSecondary)
-            Picker("Goal by", selection: Binding(
-                get: { gameState.goalByPhotos },
-                set: { gameState.goalByPhotos = $0 }
-            )) {
-                Text("Photos").tag(true)
-                Text("Space").tag(false)
-            }
-            .pickerStyle(.segmented)
+            ThemeSegmentedControl(
+                selection: Binding(
+                    get: { gameState.goalByPhotos },
+                    set: { gameState.goalByPhotos = $0 }
+                ),
+                options: [("Photos", true), ("Space", false)],
+                selectedColor: TrashPicUpTheme.accentCyan
+            )
         }
     }
 
@@ -531,12 +529,11 @@ struct GameView: View {
         HStack {
             Text("Duration")
                 .foregroundStyle(TrashPicUpTheme.textSecondary)
-            Picker("Duration", selection: $gameState.goalDuration) {
-                ForEach(GoalDuration.allCases, id: \.self) { duration in
-                    Text(duration.displayName).tag(duration)
-                }
-            }
-            .pickerStyle(.segmented)
+            ThemeSegmentedControl(
+                selection: $gameState.goalDuration,
+                options: GoalDuration.allCases.map { ($0.displayName, $0) },
+                selectedColor: TrashPicUpTheme.accentMagenta
+            )
         }
     }
 
@@ -647,13 +644,26 @@ struct TinderCardView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .onAppear { loadImage(size: CGSize(width: min(800, w * 2), height: min(800, h * 2))) }
+            .onAppear { loadImage(size: cardLoadSize(w: w, h: h)) }
             .onChange(of: photo.id) { _, _ in
                 image = nil
                 loadingPhotoId = photo.id
-                loadImage(size: CGSize(width: min(800, w * 2), height: min(800, h * 2)))
+                loadImage(size: cardLoadSize(w: w, h: h))
+            }
+            .onChange(of: w) { _, newW in
+                if newW > 0, image == nil { loadImage(size: cardLoadSize(w: newW, h: h)) }
+            }
+            .onChange(of: h) { _, newH in
+                if newH > 0, image == nil { loadImage(size: cardLoadSize(w: w, h: newH)) }
             }
         }
+    }
+
+    /// Avoid 0×0 request on first layout (GeometryReader can report zero); use at least 400 so first photo loads.
+    private func cardLoadSize(w: CGFloat, h: CGFloat) -> CGSize {
+        let width = max(400, min(800, w * 2))
+        let height = max(400, min(800, h * 2))
+        return CGSize(width: width, height: height)
     }
 
     private func fittedCardSize(width w: CGFloat, height h: CGFloat) -> (CGFloat, CGFloat) {
@@ -760,11 +770,10 @@ struct TinderCardView: View {
     private func loadImage(size: CGSize) {
         let requestedId = photo.id
         loadingPhotoId = requestedId
-        photo.getImage(targetSize: size, deliveryMode: .highQualityFormat) { img in
+        photo.getImage(targetSize: size, deliveryMode: .opportunistic) { img in
             DispatchQueue.main.async {
-                if loadingPhotoId == requestedId {
-                    image = img
-                }
+                guard loadingPhotoId == requestedId, let img = img else { return }
+                image = img
             }
         }
     }
@@ -819,6 +828,7 @@ struct FullScreenPhotoView: View {
                     duplicatePanel(width: geo.size.width)
                     fullScreenInfoSection
                 }
+                .frame(minWidth: geo.size.width)
                 .background(
                     GeometryReader { g in
                         Color.clear.preference(key: FullScreenContentHeightKey.self, value: g.size.height)
@@ -860,9 +870,9 @@ struct FullScreenPhotoView: View {
         let requestedId = p.id
         if !preserveCurrent { image = nil }
         let size = CGSize(width: 1600, height: 1600)
-        p.getImage(targetSize: size, deliveryMode: .highQualityFormat) { img in
+        p.getImage(targetSize: size, deliveryMode: .opportunistic) { img in
             DispatchQueue.main.async {
-                guard activePhoto.id == requestedId else { return }
+                guard activePhoto.id == requestedId, let img = img else { return }
                 image = img
             }
         }
@@ -945,33 +955,37 @@ struct FullScreenPhotoView: View {
 
     /// Resized photo + ambient top/sides so photo and duplicate panel fit in same view.
     private func photoSectionCompact(width: CGFloat, showHint: Bool, maxHeight: CGFloat) -> some View {
-        ZStack {
-            ambientBackground(width: width, height: maxHeight)
-            if let img = image {
-                ZoomablePhotoView(image: img)
-                    .id(activePhoto.id)
-                    .frame(width: width, height: maxHeight)
-            } else {
-                ProgressView()
-                    .scaleEffect(1.5)
-                    .tint(TrashPicUpTheme.fullScreenInfoText)
-                    .frame(minHeight: 120)
-            }
-            if showHint {
-                VStack {
-                    Spacer()
-                    Text("Swipe up for info · Swipe down to return")
-                        .font(.caption)
-                        .foregroundStyle(TrashPicUpTheme.fullScreenInfoText)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 10)
-                        .background(Color.black.opacity(0.35))
-                        .cornerRadius(8)
-                        .padding(.bottom, 24)
+        GeometryReader { innerGeo in
+            let w = max(1, innerGeo.size.width)
+            ZStack {
+                ambientBackground(width: w, height: maxHeight)
+                if let img = image {
+                    ZoomablePhotoView(image: img)
+                        .id(activePhoto.id)
+                        .frame(width: w, height: maxHeight)
+                } else {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                        .tint(TrashPicUpTheme.fullScreenInfoText)
+                        .frame(minHeight: 120)
+                }
+                if showHint {
+                    VStack {
+                        Spacer()
+                        Text("Swipe up for info · Swipe down to return")
+                            .font(.caption)
+                            .foregroundStyle(TrashPicUpTheme.fullScreenInfoText)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 10)
+                            .background(Color.black.opacity(0.35))
+                            .cornerRadius(8)
+                            .padding(.bottom, 24)
+                    }
                 }
             }
+            .frame(width: w, height: maxHeight)
         }
-        .frame(width: width, height: maxHeight)
+        .frame(height: maxHeight)
         .frame(maxWidth: .infinity)
     }
 
@@ -1352,6 +1366,41 @@ struct FullScreenPhotoModifier: ViewModifier {
 }
 
 // MARK: - Helpers
+
+/// Segmented control that uses theme accent for the selected segment (avoids system grey).
+struct ThemeSegmentedControl<T: Hashable>: View {
+    @Binding var selection: T
+    let options: [(label: String, value: T)]
+    let selectedColor: Color
+
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(Array(options.enumerated()), id: \.offset) { index, option in
+                let isSelected = selection == option.value
+                Button {
+                    selection = option.value
+                } label: {
+                    Text(option.label)
+                        .font(.subheadline)
+                        .fontWeight(isSelected ? .semibold : .regular)
+                        .foregroundStyle(isSelected ? .white : TrashPicUpTheme.textPrimary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                        .background(
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(isSelected ? selectedColor : Color.clear)
+                        )
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(4)
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(TrashPicUpTheme.textSecondary.opacity(0.2))
+        )
+    }
+}
 
 struct StatRow: View {
     let label: String
