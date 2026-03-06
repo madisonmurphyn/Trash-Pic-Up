@@ -8,23 +8,23 @@ Managing thousands of screenshots across devices became overwhelming. I wanted a
 
 ## Screenshots
 
-<img src="screenshots/TrashPicUp_Loading%20Screen.PNG" width="400" alt="Loading Screen"> <img src="screenshots/TrashPicUp_Screenshot%20and%20Blurry%20Photo.PNG" width="400" alt="Screenshot and Blurry Photo">
+<img src="screenshots/TrashPicUp_Loading%20Screen.PNG" width="200" alt="Loading Screen"> <img src="screenshots/TrashPicUp_Screenshot%20and%20Blurry%20Photo.PNG" width="200" alt="Screenshot and Blurry Photo">
 
 *Loading · Main review*
 
-<img src="screenshots/TrashPicUp_Keep%20Photo.PNG" width="400" alt="Keep Photo"> <img src="screenshots/TrashPicUp_Delete%20Photo.PNG" width="400" alt="Delete Photo">
+<img src="screenshots/TrashPicUp_Keep%20Photo.PNG" width="200" alt="Keep Photo"> <img src="screenshots/TrashPicUp_Delete%20Photo.PNG" width="200" alt="Delete Photo">
 
 *Keep · Delete*
 
-<img src="screenshots/TrashPicUp_Blurry%20Photo.PNG" width="400" alt="Blurry Photo"> <img src="screenshots/TrashPicUp_Blurry%20Photo%20Full%20Screen%20View.PNG" width="400" alt="Blurry Photo Full Screen">
+<img src="screenshots/TrashPicUp_Blurry%20Photo.PNG" width="200" alt="Blurry Photo"> <img src="screenshots/TrashPicUp_Blurry%20Photo%20Full%20Screen%20View.PNG" width="200" alt="Blurry Photo Full Screen">
 
 *Blurry (card) · Blurry (full screen)*
 
-<img src="screenshots/TrashPicUp_Duplicate%20Photo.PNG" width="400" alt="Duplicate Photo"> <img src="screenshots/TrashPicUp_Duplicate%20Photo%20Full%20Screen%20View.PNG" width="400" alt="Duplicate Full Screen">
+<img src="screenshots/TrashPicUp_Duplicate%20Photo.PNG" width="200" alt="Duplicate Photo"> <img src="screenshots/TrashPicUp_Duplicate%20Photo%20Full%20Screen%20View.PNG" width="200" alt="Duplicate Full Screen">
 
 *Duplicate (card) · Duplicate (full screen)*
 
-<img src="screenshots/TrashPicUp_Stats%20%26%20Settings.PNG" width="400" alt="Stats & Settings">
+<img src="screenshots/TrashPicUp_Stats%20%26%20Settings.PNG" width="200" alt="Stats & Settings">
 
 *Stats & Settings*
 
