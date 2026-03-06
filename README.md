@@ -6,28 +6,6 @@ A gamified macOS/iOS app that helps you clean up your Apple Photos library with 
 
 Managing thousands of screenshots across devices became overwhelming. I wanted a fun, gamified way to clean up my photo library that felt less like a chore and more like a game. TrashPicUp combines Tinder-style UI patterns with Apple's Photos framework to make photo management actually enjoyable.
 
-## Screenshots
-
-<img src="screenshots/TrashPicUp_Loading%20Screen.PNG" width="200" alt="Loading Screen"> <img src="screenshots/TrashPicUp_Screenshot%20and%20Blurry%20Photo.PNG" width="200" alt="Screenshot and Blurry Photo">
-
-*Loading · Main review*
-
-<img src="screenshots/TrashPicUp_Keep%20Photo.PNG" width="200" alt="Keep Photo"> <img src="screenshots/TrashPicUp_Delete%20Photo.PNG" width="200" alt="Delete Photo">
-
-*Keep · Delete*
-
-<img src="screenshots/TrashPicUp_Blurry%20Photo.PNG" width="200" alt="Blurry Photo"> <img src="screenshots/TrashPicUp_Blurry%20Photo%20Full%20Screen%20View.PNG" width="200" alt="Blurry Photo Full Screen">
-
-*Blurry (card) · Blurry (full screen)*
-
-<img src="screenshots/TrashPicUp_Duplicate%20Photo.PNG" width="200" alt="Duplicate Photo"> <img src="screenshots/TrashPicUp_Duplicate%20Photo%20Full%20Screen%20View.PNG" width="200" alt="Duplicate Full Screen">
-
-*Duplicate (card) · Duplicate (full screen)*
-
-<img src="screenshots/TrashPicUp_Stats%20%26%20Settings.PNG" width="200" alt="Stats & Settings">
-
-*Stats & Settings*
-
 ## Features
 
 - 🃏 **Tinder-Style Cards**: One photo at a time. Swipe left → delete, swipe right → keep. Or use the trash (bottom-left) and check (bottom-right) buttons.
@@ -38,6 +16,21 @@ Managing thousands of screenshots across devices became overwhelming. I wanted a
 - 📊 **Statistics**: Track photos deleted, space freed, and streaks (Stats & Settings).
 - 🔄 **Undo Support**: Undo last deletion from Stats.
 - 📱 **Cross-Platform**: Works on both macOS and iOS (see [IOS_SETUP.md](IOS_SETUP.md) for iOS setup).
+
+## Screenshots
+*Loading* ------------------------ *Main View* --------------------- *Keep* (swipe right) ------------- *Delete* (swipe left) -------
+
+<img src="screenshots/TrashPicUp_Loading%20Screen.PNG" width="190" alt="Loading Screen"> ----- <img src="screenshots/TrashPicUp_Screenshot%20and%20Blurry%20Photo.PNG" width="190" alt="Screenshot and Blurry Photo"> ----- 
+<img src="screenshots/TrashPicUp_Keep%20Photo.PNG" width="190" alt="Keep Photo"> ----- <img src="screenshots/TrashPicUp_Delete%20Photo.PNG" width="190" alt="Delete Photo">
+
+
+*Blurry* (card) ------------------- *Blurry* (full screen) ------------- *Duplicate* (card) --------------- *Duplicate* (full screen) ---
+
+<img src="screenshots/TrashPicUp_Blurry%20Photo.PNG" width="190" alt="Blurry Photo"> ----- <img src="screenshots/TrashPicUp_Blurry%20Photo%20Full%20Screen%20View.PNG" width="190" alt="Blurry Photo Full Screen"> ----- <img src="screenshots/TrashPicUp_Duplicate%20Photo.PNG" width="190" alt="Duplicate Photo"> ----- <img src="screenshots/TrashPicUp_Duplicate%20Photo%20Full%20Screen%20View.PNG" width="190" alt="Duplicate Full Screen">
+
+*Stats & Settings*
+
+<img src="screenshots/TrashPicUp_Stats%20%26%20Settings.PNG" width="200" alt="Stats & Settings">
 
 ## Requirements
 
