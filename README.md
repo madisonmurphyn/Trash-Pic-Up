@@ -18,15 +18,15 @@ Managing thousands of screenshots across devices became overwhelming. I wanted a
 - 📱 **Cross-Platform**: Works on both macOS and iOS (see [IOS_SETUP.md](IOS_SETUP.md) for iOS setup).
 
 ## Screenshots
-*Loading* ------------------------ *Main View* --------------------- *Keep* (swipe right) ------------- *Delete* (swipe left) -------
+*Loading* --------------------- *Main View* ------------------- *Keep* (swipe right) ----------- *Delete* (swipe left) -------
 
-<img src="screenshots/TrashPicUp_Loading%20Screen.PNG" width="190" alt="Loading Screen"> ----- <img src="screenshots/TrashPicUp_Screenshot%20and%20Blurry%20Photo.PNG" width="190" alt="Screenshot and Blurry Photo"> ----- 
-<img src="screenshots/TrashPicUp_Keep%20Photo.PNG" width="190" alt="Keep Photo"> ----- <img src="screenshots/TrashPicUp_Delete%20Photo.PNG" width="190" alt="Delete Photo">
+<img src="screenshots/TrashPicUp_Loading%20Screen.PNG" width="190" alt="Loading Screen"> --- <img src="screenshots/TrashPicUp_Screenshot%20and%20Blurry%20Photo.PNG" width="190" alt="Screenshot and Blurry Photo"> --- 
+<img src="screenshots/TrashPicUp_Keep%20Photo.PNG" width="190" alt="Keep Photo"> --- <img src="screenshots/TrashPicUp_Delete%20Photo.PNG" width="190" alt="Delete Photo">
 
 
-*Blurry* (card) ------------------- *Blurry* (full screen) ------------- *Duplicate* (card) --------------- *Duplicate* (full screen) ---
+*Blurry* (card) ----------------- *Blurry* (full screen) ----------- *Duplicate* (card) ------------- *Duplicate* (full screen) ---
 
-<img src="screenshots/TrashPicUp_Blurry%20Photo.PNG" width="190" alt="Blurry Photo"> ----- <img src="screenshots/TrashPicUp_Blurry%20Photo%20Full%20Screen%20View.PNG" width="190" alt="Blurry Photo Full Screen"> ----- <img src="screenshots/TrashPicUp_Duplicate%20Photo.PNG" width="190" alt="Duplicate Photo"> ----- <img src="screenshots/TrashPicUp_Duplicate%20Photo%20Full%20Screen%20View.PNG" width="190" alt="Duplicate Full Screen">
+<img src="screenshots/TrashPicUp_Blurry%20Photo.PNG" width="190" alt="Blurry Photo"> --- <img src="screenshots/TrashPicUp_Blurry%20Photo%20Full%20Screen%20View.PNG" width="190" alt="Blurry Photo Full Screen"> --- <img src="screenshots/TrashPicUp_Duplicate%20Photo.PNG" width="190" alt="Duplicate Photo"> --- <img src="screenshots/TrashPicUp_Duplicate%20Photo%20Full%20Screen%20View.PNG" width="190" alt="Duplicate Full Screen">
 
 *Stats & Settings*
 
